@@ -17,7 +17,7 @@ namespace cfone
         {
             var discord = new DiscordClient(new DiscordConfiguration()
             {
-                Token = "NjkwOTk3MzA0OTg3MDkwOTQ0.G4Yiiz.XDxMFqOdgQ4gDYd9suVVPg8utXM6lVi0UvJ7UI",
+                Token = "use your own token, will migrate this to some sort of config.json file later",
                 TokenType = TokenType.Bot,
                 Intents = DiscordIntents.AllUnprivileged
             });

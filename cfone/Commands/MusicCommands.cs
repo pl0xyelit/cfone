@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 public class MusicCommands : BaseCommandModule
 {
+    // command for playing music
     [Command("play")]
     public async Task Play(CommandContext ctx, [RemainingText] string search)
     {
@@ -46,6 +47,8 @@ public class MusicCommands : BaseCommandModule
 
         await ctx.RespondAsync($"Now playing {track.Title}!");
     }
+    
+    // command for playing music, it's botched so it doesn't really work rn
     [Command("pause")]
     public async Task Pause(CommandContext ctx)
     {
@@ -74,6 +77,8 @@ public class MusicCommands : BaseCommandModule
         await conn.PauseAsync();
     }
 
+    // command for making the bot join your voice channel. Mandatory for playing music (at least as of now).
+    // the argument channel can be either a string (i.e. p!join "Voice Channel") or a channel link (p!join #!Voice Channel)
     [Command("join")]
     public async Task Join(CommandContext ctx, DiscordChannel channel)
     {
@@ -96,6 +101,7 @@ public class MusicCommands : BaseCommandModule
         await ctx.RespondAsync($"Joined {channel.Name}!");
     }
 
+    // command for disconnecting the bot from a voice channel. Bot will automatically disconnect after a while
     [Command("leave")]
     public async Task Leave(CommandContext ctx, DiscordChannel channel)
     {
