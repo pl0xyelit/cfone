@@ -101,7 +101,7 @@ public class MusicCommands : BaseCommandModule
         await ctx.RespondAsync($"Joined {channel.Name}!");
     }
 
-    // command for disconnecting the bot from a voice channel. Bot will automatically disconnect after a while
+    // command for disconnecting the bot from a voice channel. Bot will automatically disconnect after a while (but not because of this command specifically)
     [Command("leave")]
     public async Task Leave(CommandContext ctx, DiscordChannel channel)
     {

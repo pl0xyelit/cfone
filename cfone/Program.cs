@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Net;
 using DSharpPlus.Lavalink;
+using DSharpPlus.Entities;
 namespace cfone
 {
     class Program
@@ -17,7 +18,7 @@ namespace cfone
         {
             var discord = new DiscordClient(new DiscordConfiguration()
             {
-                Token = "use your own token, will migrate this to some sort of config.json file later",
+                Token = "place your token here, will migrate to some sort of config.json later",
                 TokenType = TokenType.Bot,
                 Intents = DiscordIntents.AllUnprivileged
             });
@@ -29,6 +30,7 @@ namespace cfone
 
             commands.RegisterCommands<MyFirstModule>();
             commands.RegisterCommands<MusicCommands>();
+            commands.RegisterCommands<AmongUs>();
 
             var endpoint = new ConnectionEndpoint
             {
