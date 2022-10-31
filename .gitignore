@@ -396,6 +396,9 @@ cfone/cfone/obj/*
 # where the binaries and .pdb shit gets compiled so you can actually run the thing
 cfone/cfone/bin/*
 
+# Properties Folder
+cfone/cfone/Properties/*
+
 ############# My own stuff (no cap fr!!!)
 
 # Windows Installer files from build outputs
