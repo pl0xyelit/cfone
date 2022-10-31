@@ -13,7 +13,7 @@ cfone is a Discord bot made in C# using DSharpPlus, a [C# library](https://githu
 1. Clone the repository (`git clone https://github.com/pl0xyelit/cfone`).
 2. Go to the folder where you cloned the repository.
 3. Open `cfone.sln` in your Visual Studio installation of choice.
-4. Hit F5 (Debug) in order to build and run a local version of cfone. You **need** to replace the placeholder token from cfone/Program.cs with your own bot token.
+4. Hit F5 (Debug) in order to build and run a local version of cfone. You **need** to replace the placeholder token from `cfone/Program.cs` with your own bot token.
 
 ## Credits
 * Developers of [DSharpPlus](https://github.com/DSharpPlus/DSharpPlus)
