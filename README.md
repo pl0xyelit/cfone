@@ -20,7 +20,7 @@ cfone is a Discord bot made in C# using DSharpPlus, a [C# library](https://githu
 * Developers of [Lavalink](https://github.com/freyacodes/Lavalink)
 * [Chiriac Mihai Ciprian](https://github.com/pl0xyelit), creator and main developer working on the cfone Discord bot
 * Viitor, the Romanian artist whose alter-ego, cfone, is the inspiration for this Discord bot's username
-* [Erisa](https://github.com/Erisa) and their Discord bot, [Cliptok](https://github.com/Erisa/Cliptok), the moderation Discord bot made for the Microsoft Community Discord guild, being the reason I started working on cfone
+* [Erisa](https://github.com/Erisa) and their Discord bot, [Cliptok](https://github.com/Erisa/Cliptok), made for moderating the [Microsoft Community Discord guild](https://discord.gg/microsoft), being the reason I started working on cfone
 
 ## License
 Creative Commons Zero v1.0 Universal
