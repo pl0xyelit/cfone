@@ -18,7 +18,7 @@ namespace cfone
         {
             var discord = new DiscordClient(new DiscordConfiguration()
             {
-                Token = "NjkwOTk3MzA0OTg3MDkwOTQ0.Ga8jnw.YIsr5wsLx1KS5p61qXTduconF2nFjWmjOab-0M",
+                Token = "NjkwOTk3MzA0OTg3MDkwOTQ0.GnV2XU.VI8OTe09tczZFsvRSBw4_-Hrdumww_STQWaCcw",
                 TokenType = TokenType.Bot,
                 Intents = DiscordIntents.AllUnprivileged
             });
@@ -29,8 +29,9 @@ namespace cfone
             });
 
             commands.RegisterCommands<MyFirstModule>();
-            commands.RegisterCommands<MusicCommands>();
+            commands.RegisterCommands<Music>();
             commands.RegisterCommands<AmongUs>();
+            commands.RegisterCommands<Moderation>();
 
             var endpoint = new ConnectionEndpoint
             {

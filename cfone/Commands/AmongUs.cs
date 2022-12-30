@@ -13,6 +13,8 @@ public class AmongUs : BaseCommandModule
 {
     // mutes all members of a voice channel. Primarily intended for muting players outside Emergency Meetings. 
     [Command("muteall")]
+    [Description("This command is for easily muting everyone in a voice channel during Among Us matches, as communicating outside meetings should be prohibited in order to maintain the game fun.")]
+    [RequirePermissions(Permissions.MuteMembers)]
     public async Task MuteAll(CommandContext ctx, DiscordChannel channel, bool mute = true)
     {
         var connected = channel.Users;
@@ -28,4 +30,3 @@ public class AmongUs : BaseCommandModule
         }
     }
 }
-
