@@ -16,12 +16,14 @@ cfone is a Discord bot made in C# using DSharpPlus, a [C# library](https://githu
 2. Go to the folder where you cloned the repository.
 3. Open `cfone.sln` in your Visual Studio installation of choice.
 4. Hit F5 (Debug) in order to build and run a local version of cfone. You **need** to create a `.env` file at the path `cfone/cfone/.env`. There is a `.env-example` file in order to give you an idea what your `.env` file should look like.
+5. (Optional) for music commands, place your Lavalink .jar file in `cfone/Lavalink` and start Lavalink by running `java -jar ./Lavalink.jar`. Make sure to run the Lavalink .jar from the folder `Lavalink` as there is a configuration file that is required for DSharpPlus to successfully connect to Lavalink. 
 
 ### Without Visual Studio
 1. Clone the repository (`git clone https://github.com/pl0xyelit/cfone`).
 2. Go to the folder where you cloned the repository.
 3. Run `dotnet build cfone.sln`.
 4. Run the discord bot locally. Executable will be stored at a path such as `cfone/cfone/bin/Debug/net7.0`. You **need** to create a `.env` file at the path `cfone/cfone/.env`, as stated above.
+5. (Optional) for music commands, place your Lavalink .jar file in `cfone/Lavalink` and start Lavalink by running `java -jar ./Lavalink.jar`. Make sure to run the Lavalink .jar from the folder `Lavalink` as there is a configuration file that is required for DSharpPlus to successfully connect to Lavalink. 
 
 ## Credits
 * Developers of [DSharpPlus](https://github.com/DSharpPlus/DSharpPlus)

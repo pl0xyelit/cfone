@@ -402,6 +402,9 @@ cfone/cfone/Properties/
 # fucking .env shit no cap
 .env
 
+# .jar file for Lavalink
+cfone/Lavalink/Lavalink.jar
+
 ############# My own stuff (no cap fr!!!)
 
 # Windows Installer files from build outputs
