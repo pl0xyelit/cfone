@@ -403,7 +403,7 @@ cfone/cfone/Properties/
 .env
 
 # .jar file for Lavalink
-cfone/Lavalink/Lavalink.jar
+*.jar
 
 ############# My own stuff (no cap fr!!!)
 
