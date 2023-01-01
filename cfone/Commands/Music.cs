@@ -15,7 +15,9 @@ public class Music : BaseCommandModule
 {
     // command for playing music
     [Command("play")]
-    public async Task Play(CommandContext ctx, [RemainingText] string search)
+    [Description("Lets you play music in a voice channel. the `searchType` argument is optional (default value being `youtube`), with the possible values of `youtube`, `plain`/`http`, or `soundcloud")]
+    [RequireBotPermissions(Permissions.AccessChannels | Permissions.Speak)]
+    public async Task Play(CommandContext ctx, string search, string searchType = "youtube")
     {
         if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
         {
@@ -36,8 +38,24 @@ public class Music : BaseCommandModule
             return;
         }
 
-
         var loadResult = await node.Rest.GetTracksAsync(search);
+        switch (searchType.ToLower()) {
+            case "youtube":
+                loadResult = await node.Rest.GetTracksAsync(search, LavalinkSearchType.Youtube);
+                break;
+            case "plain":
+                loadResult = await node.Rest.GetTracksAsync(search, LavalinkSearchType.Plain);
+                break;
+            case "http":
+                loadResult = await node.Rest.GetTracksAsync(search, LavalinkSearchType.Plain);
+                break;
+            case "soundcloud":
+                loadResult = await node.Rest.GetTracksAsync(search, LavalinkSearchType.SoundCloud);
+                break;
+            default:
+                loadResult = await node.Rest.GetTracksAsync(search);
+                break;
+        }
 
         if (loadResult.LoadResultType == LavalinkLoadResultType.LoadFailed
             || loadResult.LoadResultType == LavalinkLoadResultType.NoMatches)
@@ -57,6 +75,8 @@ public class Music : BaseCommandModule
 
     // command for playing music, it's botched so it doesn't really work rn
     [Command("resume")]
+    [Description("Resumes music playback after pausing.")]
+    [RequireBotPermissions(Permissions.Speak | Permissions.AccessChannels)]
     public async Task Resume(CommandContext ctx)
     {
         if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
@@ -78,6 +98,8 @@ public class Music : BaseCommandModule
         await ctx.RespondAsync("Resumed playback.");
     }
     [Command("pause")]
+    [Description("Pauses music playback.")]
+    [RequireBotPermissions(Permissions.Speak | Permissions.AccessChannels)]
     public async Task Pause(CommandContext ctx)
     {
         if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
@@ -110,9 +132,11 @@ public class Music : BaseCommandModule
     // the argument channel can be either a string (i.e. p!join "Voice Channel") or a channel link (p!join #!Voice Channel)
     [Command("join")]
     [Description("Makes the discord bot join specified voice channel in order to play music in it.")]
-    public async Task Join(CommandContext ctx)
+    [RequireBotPermissions(Permissions.AccessChannels)]
+    public async Task Join(CommandContext ctx, DiscordChannel channel = null)
     {
-        var channel = ctx.Member.VoiceState.Channel;
+
+
         var lava = ctx.Client.GetLavalink();
         if (!lava.ConnectedNodes.Any())
         {
@@ -121,13 +145,22 @@ public class Music : BaseCommandModule
         }
 
         var node = lava.ConnectedNodes.Values.First();
+        if (channel == null)
+        {
+            if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
+            {
+                await ctx.RespondAsync("You are not in a voice channel.");
+                return;
+            }
+            channel = ctx.Member.VoiceState.Channel;
+        }
 
         if (channel.Type != ChannelType.Voice)
         {
             await ctx.RespondAsync("Not a valid voice channel.");
             return;
         }
-
+        
         await node.ConnectAsync(channel);
         await ctx.RespondAsync($"Joined {channel.Name}!");
     }

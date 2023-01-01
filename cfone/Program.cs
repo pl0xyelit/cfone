@@ -22,7 +22,7 @@ namespace cfone
             {
                 Token = System.Environment.GetEnvironmentVariable("CFONE_TOKEN"),
                 TokenType = TokenType.Bot,
-                Intents = DiscordIntents.AllUnprivileged
+                Intents = DiscordIntents.AllUnprivileged | DiscordIntents.MessageContents
             });
 
             var commands = discord.UseCommandsNext(new CommandsNextConfiguration()
