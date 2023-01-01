@@ -5,6 +5,7 @@ using DSharpPlus.CommandsNext;
 using DSharpPlus.Net;
 using DSharpPlus.Lavalink;
 using DSharpPlus.Entities;
+using DotNetEnv;
 namespace cfone
 {
     class Program
@@ -16,9 +17,10 @@ namespace cfone
 
         static async Task MainAsync()
         {
+            Env.Load("..\\..\\..\\.env");
             var discord = new DiscordClient(new DiscordConfiguration()
             {
-                Token = "NjkwOTk3MzA0OTg3MDkwOTQ0.GnV2XU.VI8OTe09tczZFsvRSBw4_-Hrdumww_STQWaCcw",
+                Token = System.Environment.GetEnvironmentVariable("CFONE_TOKEN"),
                 TokenType = TokenType.Bot,
                 Intents = DiscordIntents.AllUnprivileged
             });

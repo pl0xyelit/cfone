@@ -399,6 +399,9 @@ cfone/cfone/bin/*
 # Properties Folder
 cfone/cfone/Properties/
 
+# fucking .env shit no cap
+.env
+
 ############# My own stuff (no cap fr!!!)
 
 # Windows Installer files from build outputs

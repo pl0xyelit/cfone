@@ -25,7 +25,7 @@ public class Music : BaseCommandModule
 
         var lava = ctx.Client.GetLavalink();
         var node = lava.ConnectedNodes.Values.First();
-        if(ctx.Member.VoiceState is not null || ctx.Member.VoiceState.Channel is not null)
+        if (ctx.Member.VoiceState is not null || ctx.Member.VoiceState.Channel is not null)
         {
             await node.ConnectAsync(ctx.Member.VoiceState.Channel);
         }
@@ -35,7 +35,7 @@ public class Music : BaseCommandModule
             await ctx.RespondAsync("Lavalink is not connected.");
             return;
         }
-        
+
 
         var loadResult = await node.Rest.GetTracksAsync(search);
 
@@ -139,7 +139,7 @@ public class Music : BaseCommandModule
     public async Task Leave(CommandContext ctx, DiscordChannel channel = null)
     {
         var lava = ctx.Client.GetLavalink();
-        if(channel is null) 
+        if (channel is null)
             channel = ctx.Guild.VoiceStates[ctx.Client.CurrentUser.Id].Channel;
         if (channel != ctx.Guild.VoiceStates[ctx.Client.CurrentUser.Id].Channel)
             await ctx.RespondAsync("Bot is not connected to this voice channel.");
@@ -150,7 +150,7 @@ public class Music : BaseCommandModule
         }
 
         var node = lava.ConnectedNodes.Values.First();
-        if(channel.Type != ChannelType.Voice)
+        if (channel.Type != ChannelType.Voice)
         {
             await ctx.RespondAsync("Not a valid voice channel.");
             return;
