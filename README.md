@@ -5,7 +5,7 @@ cfone is a Discord bot made in C# using DSharpPlus, a [C# library](https://githu
 * **Note:** This bot requires Lavalink to be set up as described [here](https://dsharpplus.github.io/articles/audio/lavalink/setup.html), but if you do not intend to use music commands, you can ignore `cfone/Commands/MusicCommands.cs` and remove all mentions of Lavalink or the aforementioned file from `cfone/Program.cs`
 
 ## Requirements
-* Visual Studio 2019 or Visual Studio 2022, with the .NET desktop development workload (optional, Visual Studio Code with Solution Explorer extension should work just fine)
+* (Optional) Visual Studio 2019 or Visual Studio 2022, with the .NET desktop development workload (Visual Studio Code with Solution Explorer extension should work just fine)
 * Latest LTS release of the .NET SDK (6.0) or .NET SDK 7.0, in order to use the latest version of DSharpPlus (at the time of writing)
 * If you intend on using the music commands, you will need a working [Lavalink](https://github.com/freyacodes/Lavalink/releases) .jar file as well as meeting the [requirements](https://github.com/freyacodes/Lavalink#requirements) for running Lavalink
 
