@@ -400,7 +400,7 @@ cfone/cfone/bin/*
 cfone/cfone/Properties/
 
 # fucking .env shit no cap
-.env
+cfone/.env
 
 # .jar file for Lavalink
 *.jar

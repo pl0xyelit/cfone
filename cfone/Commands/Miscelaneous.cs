@@ -20,15 +20,18 @@ public class Miscelaneous : BaseCommandModule
     }
     [Command("alpaca")]
     [Description("Lets you give the Alpaca language model a prompt and it'll provide an answer.")]
-    public async Task AlpacaCommand(CommandContext ctx, string prompt)
+    public async Task AlpacaCommand(CommandContext ctx, [RemainingText]string prompt)
     {
         if (prompt is not null)
         {
             var processStartInfo = new ProcessStartInfo
             {
-                FileName = @"/home/pl0xy/LLaMA-weights/llama.cpp/main",
-                Arguments = " -m /home/pl0xy/LLaMA-weights/llama.cpp/models/ggml-alpaca-7b-q4.bin --color -f /home/pl0xy/LLaMA-weights/llama.cpp/prompts/alpaca.txt --ctx_size 2048 -n -1 -ins -b 256 --top_k 10000 --temp 0.2 --repeat_penalty 1 -t 7",
-                RedirectStandardOutput = true,
+                FileName = @"/home/pl0xy/Samsung SSD/LLaMA-weights/llama.cpp/main",
+                //Arguments = "-m './home/pl0xy/Samsung SSD/LLaMA-weights/llama.cpp/models/ggml-alpaca-7b-q4.bin'--color -f './home/pl0xy/Samsung SSD/LLaMA-weights/llama.cpp/prompts/alpaca.txt' --ctx_size 2048 -n -1 -ins -b 256 --top_k 10000 --temp 0.2 --repeat-penalty 1 -t 7",
+                ArgumentList = {
+			"-m", "/home/pl0xy/Samsung SSD/LLaMA-weights/llama.cpp/models/ggml-alpaca-7b-q4.bin", "-f", "/home/pl0xy/Samsung SSD/LLaMA-weights/llama.cpp/prompts/alpaca.txt", "--ctx_size", "2048", "-n", "-1", "-ins", "-b", "256", "--top_k", "10000", "--temp", "0.2", "--repeat_penalty", "1", "-t", "7"
+		},
+		RedirectStandardOutput = true,
                 RedirectStandardInput = true,
                 UseShellExecute = false
             };
@@ -37,7 +40,8 @@ public class Miscelaneous : BaseCommandModule
             StreamReader answerReader = alpacaProcess.StandardOutput;
             promptWriter.WriteLine(prompt);
             promptWriter.Close();
-            var output = answerReader.ReadToEnd();
+            var output = answerReader.ReadLine();
+	    output = answerReader.ReadLine();
             await ctx.RespondAsync(output);
             alpacaProcess.Close();
         }
