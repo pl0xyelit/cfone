@@ -40,8 +40,13 @@ public class Miscelaneous : BaseCommandModule
             StreamReader answerReader = alpacaProcess.StandardOutput;
             promptWriter.WriteLine(prompt);
             promptWriter.Close();
-            var output = answerReader.ReadLine();
-	    output = answerReader.ReadLine();
+            var outputPreparation = answerReader.ReadLine();
+	    // these 2 should remove the `> ` at the beginng 
+	    answerReader.Read();
+	    answerReader.Read();
+	    
+	    outputPreparation = answerReader.ReadToEnd();
+	    var output = outputPreparation.Substring(0, (outputPreparation.Length - 3)); 
             await ctx.RespondAsync(output);
             alpacaProcess.Close();
         }
