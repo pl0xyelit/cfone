@@ -1,20 +1,13 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DSharpPlus.CommandsNext;
+﻿using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus;
-using System.Diagnostics;
 
 public class Miscelaneous : BaseCommandModule
 {
     [Command("greet")]
     [Description("Greets the mentioned user/the username passed with a generic message.")]
     [RequirePermissions(Permissions.None)]
-    public async Task GreetCommand(CommandContext ctx, string username) 
+    public async Task GreetCommand(CommandContext ctx, [RemainingText]string username) 
     {
         await ctx.RespondAsync($"Greetings, {username}, from pl0xy's 2018 laptop");
     }
