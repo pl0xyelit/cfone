@@ -2,14 +2,7 @@
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
 using DSharpPlus;
-using DSharpPlus.Net;
 using DSharpPlus.Lavalink;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading.Channels;
 
 public class Music : BaseCommandModule
 {
